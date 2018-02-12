@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/title_0"
+        android:title="全部内容"/>
+    <item
+        android:id="@+id/title_1"
+        android:title="福利"/>
+    <item
+        android:id="@+id/title_2"
+        android:title="Android"/>
+    <item
+        android:id="@+id/title_3"
+        android:title="iOS"/>
+    <item
+        android:id="@+id/title_4"
+        android:title="休息视频"/>
+    <item
+        android:id="@+id/title_5"
+        android:title="拓展资源"/>
+    <item
+        android:id="@+id/title_6"
+        android:title="前端"/>
+
+</menu>
