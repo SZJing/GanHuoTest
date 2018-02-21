@@ -28,8 +28,12 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.viewHolder> {
     private String Url;
     private int[] image = {R.drawable.image_1,R.drawable.image_2,R.drawable.image_3,
     R.drawable.image_4,R.drawable.image_5_2,R.drawable.image_6,R.drawable.image_7,
-    R.drawable.image_8,R.drawable.null_image,R.drawable.image_9,R.drawable.image_10,
-    R.drawable.image_11,R.drawable.image_12_1,R.drawable.image_13,R.drawable.image_14,R.drawable.image_15};
+    R.drawable.image_8,R.drawable.image_9,R.drawable.image_10,
+    R.drawable.image_11,R.drawable.image_12_1,R.drawable.image_13,R.drawable.image_14,R.drawable.image_15,
+    R.drawable.image_17,R.drawable.image_18,R.drawable.image_19,R.drawable.image_20,
+            R.drawable.image_21,R.drawable.image_22,R.drawable.image_24,R.drawable.image_25,
+            R.drawable.image_26,R.drawable.image_27,R.drawable.image_28,R.drawable.image_29,R.drawable.image_30,
+            R.drawable.image_31,R.drawable.image_32,R.drawable.image_33,};
 
     public InfoAdapter(Context context,List<InfoGson.Info> list){
         this.context = context;
@@ -39,7 +43,17 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.viewHolder> {
     @Override
     public InfoAdapter.viewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.layout_info_item,parent,false);
-        viewHolder holder = new viewHolder(view);
+        final viewHolder holder = new viewHolder(view);
+        holder.item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                Url = List.get(position).getUrl();
+                Intent intent = new Intent(context,InfoActivity.class);
+                intent.putExtra("Url",Url);
+                context.startActivity(intent);
+            }
+        });
         return holder;
     }
 
@@ -51,23 +65,9 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.viewHolder> {
         }else {
             holder.author.setText(List.get(position).getWho());
         }
-        if (List.get(position).getImages() == null){
             Random random = new Random();
             int index = random.nextInt(image.length);
             Glide.with(context).load(image[index]).into(holder.image);
-        }else {
-            String[] ImageUrl = List.get(position).getImages();
-            Glide.with(context).load(ImageUrl[0]+"?imageView2/0/w/150").into(holder.image);
-        }
-        Url = List.get(position).getUrl();
-        holder.item.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context,InfoActivity.class);
-                intent.putExtra("Url",Url);
-                context.startActivity(intent);
-            }
-        });
 
     }
 
