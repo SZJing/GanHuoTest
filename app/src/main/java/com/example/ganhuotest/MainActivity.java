@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutRecey);
         mListInage = infoGson.getResults();
         if (mListInage == null){
-            Toast.makeText(getApplicationContext(),"已经到头了，看看别的吧",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"已经到头了",Toast.LENGTH_SHORT).show();
         }else {
             imgAdapter = new ImageAdapter(this,mListInage);
             recyclerView.setAdapter(imgAdapter);
