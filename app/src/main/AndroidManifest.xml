@@ -3,13 +3,15 @@
     package="com.example.ganhuotest">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_tubiao"
         android:label="@string/app_name"
         android:supportsRtl="true">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/Start">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InfoActivity"></activity>
+        <activity android:name=".InfoActivity" />
+        <activity android:name=".ImageActivity"></activity>
     </application>
 
 </manifest>
